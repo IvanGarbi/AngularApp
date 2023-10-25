@@ -20,7 +20,7 @@ export const rootRouterConfig: Routes = [
 @NgModule({
     declarations: [],
     imports: [
-        RouterModule.forRoot(rootRouterConfig)
+        RouterModule.forRoot(rootRouterConfig, { enableTracing: false })
     ],
     exports: [
         RouterModule
