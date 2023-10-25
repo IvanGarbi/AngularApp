@@ -3,6 +3,7 @@ import { Produto } from '../models/produto';
 import { Observable, fromEvent } from 'rxjs';
 import { ProdutoCountComponent } from '../componentes/produto-count.component';
 import { ProdutoDetalheComponent } from '../componentes/produto-card-detalhe.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-produto-dashboard',
@@ -18,9 +19,12 @@ export class ProdutoDashboardComponent implements OnInit, AfterViewInit {
 
   @ViewChildren(ProdutoDetalheComponent) botoes!: QueryList<ProdutoDetalheComponent>;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.produtos = this.route.snapshot.data['produtos'];
+
+
     this.produtos = [{
       id: 1,
       nome: 'Teste',
